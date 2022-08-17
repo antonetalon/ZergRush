@@ -433,6 +433,7 @@ public static class UnityExtensions
         return val.Bind(obj.SetActiveSafe);
     }
 
+#if !NO_COM_UNITY_MODULES_PHYSICS
     // Return true if object is stopped
     public static bool StopObject(this Rigidbody rb, float breakForcePower, float velocityLimit)
     {
@@ -440,6 +441,7 @@ public static class UnityExtensions
         rb.AddForce(-rb.velocity.normalized * breakForcePower);
         return false;
     }
+#endif
 
     public static Vector3 ProjectVectorOnPlane(this Vector3 planeNormal, Vector3 vec)
     {
@@ -506,12 +508,14 @@ public static class UnityExtensions
         return new Vector3(item.x * otherItem.x, item.y * otherItem.y, item.z * otherItem.z);
     }
 
+#if !NO_COM_UNITY_MODULES_PHYSICS
     public static void SetVelocityMagnitude(this Rigidbody rb, float mg)
     {
         var velocity = rb.velocity;
         if (velocity == Vector3.zero) velocity = rb.transform.forward * 0.0001f;
         rb.AddForce(velocity.normalized * (mg - velocity.magnitude), ForceMode.VelocityChange);
     }
+#endif
 
     public static Vector3 YToZero(this Vector3 vec)
     {
@@ -598,6 +602,7 @@ public static class UnityExtensions
         return (initial + UnityEngine.Random.onUnitSphere * range);
     }
 
+#if !NO_COM_UNITY_MODULES_ANIMATION
     public static void PlaySimpleAnimation(this GameObject obj, AnimationClip clip)
     {
         var anim = obj.GetOrAddComponent<Animation>();
@@ -621,6 +626,7 @@ public static class UnityExtensions
     {
         PlaySimpleAnimation(obj.gameObject, clip);
     }
+#endif
 
     public static IEventStream ToEvent(this Task task)
     {
@@ -649,10 +655,12 @@ public static class UnityExtensions
         }
     }
 
+#if !NO_COM_UNITY_MODULES_ANIMATION
     public static void SetLayerSpeed(this Animator animator, int layer, float speed)
     {
         animator.SetFloat(animator.LayerSpeedParamName(layer), speed);
     }
+#endif
 
     public static Transform FindRecursive(this Transform tr, string name)
     {

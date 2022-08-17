@@ -10,7 +10,9 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": [],
+    "defineConstraints": [
+        "NO_COM_UNITY_MODULES_ANIMATION"
+    ],
     "versionDefines": [],
     "noEngineReferences": false
 }
