@@ -602,31 +602,31 @@ public static class UnityExtensions
         return (initial + UnityEngine.Random.onUnitSphere * range);
     }
 
-#if !NO_COM_UNITY_MODULES_ANIMATION
-    public static void PlaySimpleAnimation(this GameObject obj, AnimationClip clip)
-    {
-        var anim = obj.GetOrAddComponent<Animation>();
-        if (clip == null)
-        {
-            anim.Stop();
-        }
-        else
-        {
-            anim.AddClip(clip, "default");
-            anim.Play("default");
-        }
-    }
+//#if !NO_COM_UNITY_MODULES_ANIMATION
+//    public static void PlaySimpleAnimation(this GameObject obj, AnimationClip clip)
+//    {
+//        var anim = obj.GetOrAddComponent<Animation>();
+//        if (clip == null)
+//        {
+//            anim.Stop();
+//        }
+//        else
+//        {
+//            anim.AddClip(clip, "default");
+//            anim.Play("default");
+//        }
+//    }
 
-    public static void PlaySimpleAnimation(this MonoBehaviour obj, AnimationClip clip)
-    {
-        PlaySimpleAnimation(obj.gameObject, clip);
-    }
+//    public static void PlaySimpleAnimation(this MonoBehaviour obj, AnimationClip clip)
+//    {
+//        PlaySimpleAnimation(obj.gameObject, clip);
+//    }
 
-    public static void PlaySimpleAnimation(this Component obj, AnimationClip clip)
-    {
-        PlaySimpleAnimation(obj.gameObject, clip);
-    }
-#endif
+//    public static void PlaySimpleAnimation(this Component obj, AnimationClip clip)
+//    {
+//        PlaySimpleAnimation(obj.gameObject, clip);
+//    }
+//#endif
 
     public static IEventStream ToEvent(this Task task)
     {
@@ -655,12 +655,12 @@ public static class UnityExtensions
         }
     }
 
-#if !NO_COM_UNITY_MODULES_ANIMATION
-    public static void SetLayerSpeed(this Animator animator, int layer, float speed)
-    {
-        animator.SetFloat(animator.LayerSpeedParamName(layer), speed);
-    }
-#endif
+//#if !NO_COM_UNITY_MODULES_ANIMATION
+//    public static void SetLayerSpeed(this Animator animator, int layer, float speed)
+//    {
+//        animator.SetFloat(animator.LayerSpeedParamName(layer), speed);
+//    }
+//#endif
 
     public static Transform FindRecursive(this Transform tr, string name)
     {
