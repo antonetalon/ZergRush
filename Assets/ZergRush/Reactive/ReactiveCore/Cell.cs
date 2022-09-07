@@ -1013,6 +1013,11 @@ namespace ZergRush.ReactiveCore
             return Merge(cell1, cell2, cell3, cell4, cell5, Tuple.Create)
                 .Bind(val => func(val.Item1, val.Item2, val.Item3, val.Item4, val.Item5));
         }
+        public static IDisposable MergeBind<T1, T2, T3, T4, T5, T6>(this ICell<T1> cell1, ICell<T2> cell2,
+            ICell<T3> cell3, ICell<T4> cell4, ICell<T5> cell5, ICell<T6> cell6, Action<T1, T2, T3, T4, T5, T6> func) {
+            return Merge(cell1, cell2, cell3, cell4, cell5, cell6, Tuple.Create)
+                .Bind(val => func(val.Item1, val.Item2, val.Item3, val.Item4, val.Item5, val.Item6));
+        }
 
 
         // Makes connection to cell and creates another cell as intermidiate buffer.
