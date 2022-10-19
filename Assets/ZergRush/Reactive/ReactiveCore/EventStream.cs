@@ -302,7 +302,7 @@ namespace ZergRush.ReactiveCore
         }
     }
 
-    class AnonymousEventStream<T> : IEventStream<T>
+    public class AnonymousEventStream<T> : IEventStream<T>
     {
         readonly Func<Action<T>, IDisposable> listen;
 
